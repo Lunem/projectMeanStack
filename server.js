@@ -7,15 +7,15 @@ adminRouter.get('/', function(req, res) {
    res.send('I am the dashboard!');
  });
 
- adminRouter.get('/users', function(req, res) {
-   res.send('I show all the users!');
- });
+ adminRouter.get('/users/:name', function(req, res) {
+  res.send('hello ' + req.params.name + '!');
+  });
 
  adminRouter.get('/posts', function(req, res) {
    res.send('I show all the posts!');
  });
 
-app.use('/admin', adminRouter);
+app.use('/admin', adminRouter); //recupere les routes
 
 app.get('/', function(req, res) {
 res.sendFile(path.join(__dirname + '/index.html'));
